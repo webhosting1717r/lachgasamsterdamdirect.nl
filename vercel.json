@@ -1,6 +1,24 @@
 {
   "trailingSlash": true,
   "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "lachgasamsterdamdirect.nl"
+        }
+      ],
+      "destination": "https://www.lachgasamsterdamdirect.nl/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

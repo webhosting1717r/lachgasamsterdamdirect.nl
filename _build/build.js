@@ -95,6 +95,10 @@ ${AREAS.map((a) => `- [Lachgas ${a.name}](${C.SITE_URL}/${a.slug}/): binnen ${a.
 write('vercel.json', JSON.stringify({
   trailingSlash: true,
   cleanUrls: false,
+  redirects: [
+    { source: '/:path*', has: [{ type: 'host', value: 'lachgasamsterdamdirect.nl' }], destination: 'https://www.lachgasamsterdamdirect.nl/:path*', permanent: true },
+    { source: '/index.html', destination: '/', permanent: true },
+  ],
   headers: [
     { source: '/(.*)', headers: [
       { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -106,7 +110,7 @@ write('vercel.json', JSON.stringify({
     { source: '/assets/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
   ],
 }, null, 2));
-write('.vercelignore', '_build\n.claude\n');
+write('.vercelignore', '_build\n.claude\n.htaccess\n.gitignore\n');
 
 write('.htaccess', `Options -Indexes
 DirectorySlash On
