@@ -1,0 +1,24 @@
+{
+  "name": "Lachgas Amsterdam Direct - Lachgas Amsterdam",
+  "short_name": "Lachgas A'dam",
+  "description": "Lachgas Amsterdam direct bezorgd: 24/7, binnen 20 minuten.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#040912",
+  "theme_color": "#040912",
+  "lang": "nl",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
