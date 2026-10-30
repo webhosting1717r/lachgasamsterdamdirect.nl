@@ -9,7 +9,8 @@ module.exports = {
   WA_DISPLAY: '+31 97010270187',
   WA_NUMBER: '3197010270187',
   EMAIL: 'info@lachgasamsterdamdirect.nl',
-  LASTMOD: '2026-10-26',
+  LASTMOD: '2026-10-30',
+  INDEXNOW_KEY: 'a7c41e9d03b64f58b2e6d19c85f07a3e',
   YEAR: '2026',
   // Snelkoppeling: vooraf ingevuld WhatsApp-bericht
   WA_TEXT: 'Hoi, ik wil lachgas bestellen in Amsterdam. Adres: ',

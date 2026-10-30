@@ -45,8 +45,7 @@ write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 ${urls.map((u) => `  <url>
     <loc>${C.SITE_URL}${u.loc}</loc>
     <lastmod>${C.LASTMOD}</lastmod>
-    <changefreq>${u.changefreq}</changefreq>
-    <priority>${u.priority}</priority>${u.loc === '/' ? `
+${u.loc === '/' ? `
     <image:image><image:loc>${C.SITE_URL}/assets/img/og-lachgas-amsterdam.jpg</image:loc><image:title>Lachgas Amsterdam Direct</image:title></image:image>` : ''}
   </url>`).join('\n')}
 </urlset>
@@ -55,7 +54,6 @@ ${urls.map((u) => `  <url>
 write('robots.txt', `User-agent: *
 Allow: /
 Disallow: /_build/
-Disallow: /*?*
 
 Sitemap: ${C.SITE_URL}/sitemap.xml
 `);
@@ -136,5 +134,7 @@ RedirectMatch 404 ^/_build/
   AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json application/xml image/svg+xml
 </IfModule>
 `);
+
+write(C.INDEXNOW_KEY + '.txt', C.INDEXNOW_KEY);
 
 console.log(`Gebouwd: ${urls.length} pagina's + 404, sitemap, robots, manifest, favicon, llms.txt`);

@@ -132,7 +132,8 @@ const SCRIPT = `
 (()=>{const b=document.body,g=document.getElementById("age-gate"),k="lad_age_ok";let ok=false;
 if(document.querySelector(".hero-copy")){b.classList.add("pre");requestAnimationFrame(()=>requestAnimationFrame(()=>b.classList.remove("pre")));
 document.querySelectorAll(".hero-copy,.cta-stack").forEach(el=>el.addEventListener("transitionend",()=>{el.style.willChange="transform";requestAnimationFrame(()=>{el.style.willChange=""})},{once:true}))}try{ok=localStorage.getItem(k)==="1"}catch(e){}
-if(g&&!ok){g.hidden=false;g.classList.remove("is-hidden");b.classList.add("age-gate-open");
+const bot=/bot|crawl|spider|slurp|lighthouse|pagespeed|inspectiontool|google|bing|yandex|baidu|duckduck|facebookexternalhit|headless/i.test(navigator.userAgent||"");
+if(g&&!ok&&!bot){g.hidden=false;g.classList.remove("is-hidden");b.classList.add("age-gate-open");
 document.getElementById("age-confirm").addEventListener("click",()=>{try{localStorage.setItem(k,"1")}catch(e){}g.classList.add("is-hidden");g.hidden=true;b.classList.remove("age-gate-open")});
 document.getElementById("age-decline").addEventListener("click",()=>{location.href="https://www.google.nl"})}
 const t=document.querySelector(".menu-toggle"),m=document.getElementById("main-menu"),bd=document.getElementById("menu-backdrop"),c=document.querySelector(".menu-close"),ag=document.getElementById("areas-group");if(!t||!m)return;
@@ -157,6 +158,8 @@ function head({ title, description, path, ogImage, schema, extraHead = '', robot
 <meta name="description" content="${esc(description)}">
 <meta name="robots" content="${robots || 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">
 <link rel="canonical" href="${canonical}">
+<link rel="alternate" hreflang="nl-NL" href="${canonical}">
+<link rel="alternate" hreflang="x-default" href="${canonical}">
 <meta name="author" content="${esc(C.BRAND)}">
 <meta name="theme-color" content="#040912">
 <meta name="format-detection" content="telephone=yes">

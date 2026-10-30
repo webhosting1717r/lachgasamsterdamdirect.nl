@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /_build/
-Disallow: /*?*
 
 Sitemap: https://www.lachgasamsterdamdirect.nl/sitemap.xml

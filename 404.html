@@ -7,6 +7,8 @@
 <meta name="description" content="Deze pagina bestaat niet. Ga naar lachgas Amsterdam of bekijk de bezorggebieden.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.lachgasamsterdamdirect.nl/404/">
+<link rel="alternate" hreflang="nl-NL" href="https://www.lachgasamsterdamdirect.nl/404/">
+<link rel="alternate" hreflang="x-default" href="https://www.lachgasamsterdamdirect.nl/404/">
 <meta name="author" content="Lachgas Amsterdam Direct">
 <meta name="theme-color" content="#040912">
 <meta name="format-detection" content="telephone=yes">
@@ -334,7 +336,8 @@ th{color:#f3f8ff}
 (()=>{const b=document.body,g=document.getElementById("age-gate"),k="lad_age_ok";let ok=false;
 if(document.querySelector(".hero-copy")){b.classList.add("pre");requestAnimationFrame(()=>requestAnimationFrame(()=>b.classList.remove("pre")));
 document.querySelectorAll(".hero-copy,.cta-stack").forEach(el=>el.addEventListener("transitionend",()=>{el.style.willChange="transform";requestAnimationFrame(()=>{el.style.willChange=""})},{once:true}))}try{ok=localStorage.getItem(k)==="1"}catch(e){}
-if(g&&!ok){g.hidden=false;g.classList.remove("is-hidden");b.classList.add("age-gate-open");
+const bot=/bot|crawl|spider|slurp|lighthouse|pagespeed|inspectiontool|google|bing|yandex|baidu|duckduck|facebookexternalhit|headless/i.test(navigator.userAgent||"");
+if(g&&!ok&&!bot){g.hidden=false;g.classList.remove("is-hidden");b.classList.add("age-gate-open");
 document.getElementById("age-confirm").addEventListener("click",()=>{try{localStorage.setItem(k,"1")}catch(e){}g.classList.add("is-hidden");g.hidden=true;b.classList.remove("age-gate-open")});
 document.getElementById("age-decline").addEventListener("click",()=>{location.href="https://www.google.nl"})}
 const t=document.querySelector(".menu-toggle"),m=document.getElementById("main-menu"),bd=document.getElementById("menu-backdrop"),c=document.querySelector(".menu-close"),ag=document.getElementById("areas-group");if(!t||!m)return;

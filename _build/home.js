@@ -22,14 +22,14 @@ function hero() {
   return `
 <div class="bg">
   <div class="scene-top">
-    <video class="bg-top-video" autoplay muted loop playsinline preload="auto" poster="/assets/img/scene-top-960.webp" disablepictureinpicture aria-label="Fastgas lachgas cilinder in een automaat, lachgas Amsterdam bezorgd door Lachgas Amsterdam Direct" tabindex="-1">
+    <video class="bg-top-video" autoplay muted loop playsinline preload="metadata" poster="/assets/img/scene-top-960.webp" disablepictureinpicture aria-label="Fastgas lachgas cilinder in een automaat, lachgas Amsterdam bezorgd door Lachgas Amsterdam Direct" tabindex="-1">
       <source src="/assets/video/hero-lachgas-amsterdam.mp4" type="video/mp4">
     </video>
   </div>
   <div class="scene-bottom">
     <picture>
       <source type="image/webp" srcset="/assets/img/scene-bottom-960.webp 960w, /assets/img/scene-bottom-1536.webp 1536w" sizes="100vw">
-      <img class="scene-img" src="/assets/img/scene-bottom-1536.jpg" width="1536" height="1024" alt="" fetchpriority="high" decoding="async">
+      <img class="scene-img" src="/assets/img/scene-bottom-1536.jpg" width="1536" height="1024" alt="" decoding="async">
     </picture>
   </div>
   <div class="seam-merge" aria-hidden="true"></div>
@@ -168,18 +168,17 @@ function build() {
       provider: { '@id': S.LB_ID }, areaServed: { '@type': 'City', name: 'Amsterdam' },
       availableChannel: { '@type': 'ServiceChannel', serviceUrl: `${C.SITE_URL}/lachgas-bestellen-amsterdam/`, servicePhone: { '@type': 'ContactPoint', telephone: C.PHONE_TEL } },
       hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' },
-      offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'EUR', itemOffered: { '@id': `${C.SITE_URL}/fastgas-tank-2kg/#product` } },
+      serviceOutput: { '@id': `${C.SITE_URL}/fastgas-tank-2kg/#product` },
     },
     {
-      '@type': 'Product', '@id': `${C.SITE_URL}/fastgas-tank-2kg/#product`, name: 'Fastgas lachgas cilinder 2000 gram', brand: { '@type': 'Brand', name: 'Fastgas' },
+      '@type': 'Thing', '@id': `${C.SITE_URL}/fastgas-tank-2kg/#product`, name: 'Fastgas lachgas cilinder 2000 gram', 
       image: `${C.SITE_URL}/assets/img/fastgas-cilinder-amsterdam.jpg`, url: `${C.SITE_URL}/fastgas-tank-2kg/`,
       description: 'Originele Fastgas N2O cilinder van 2000 gram met drukregelaar, verzegeld en getest. Gelijk aan ongeveer 250 patronen van 8 gram.',
-      offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'EUR', seller: { '@id': S.LB_ID }, areaServed: { '@type': 'City', name: 'Amsterdam' } },
     },
     { '@type': 'ItemList', name: 'Bezorggebieden lachgas Amsterdam', itemListElement: require('./areas').map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: `Lachgas ${a.name}`, url: `${C.SITE_URL}/${a.slug}/` })) },
   ]);
   const schema = { '@context': 'https://schema.org', '@graph': graph };
-  const extraHead = `<link rel="preload" as="image" href="/assets/img/scene-bottom-960.webp" imagesrcset="/assets/img/scene-bottom-960.webp 960w, /assets/img/scene-bottom-1536.webp 1536w" imagesizes="100vw" fetchpriority="high">`;
+  const extraHead = `<link rel="preload" as="image" href="/assets/img/scene-top-960.webp" type="image/webp" fetchpriority="high">`;
   return `${S.head({ title: TITLE, description: DESC, path: '/', schema, extraHead })}
 <body>
 <a class="skip" href="#intro">Naar de inhoud</a>

@@ -51,13 +51,13 @@ function areaPage(a) {
   </article>
   <article class="box">
     <div class="info-head"><span class="icon-chip" aria-hidden="true">${ICON.clock}</span><h2 class="h3">Dag en nacht in ${esc(a.short)}</h2></div>
-    <p class="txt">Een lege cilinder tijdens de late service of op zondagnacht hoeft niet tot morgen te wachten. We zijn 24 uur per dag en 7 dagen per week bereikbaar en rijden ook ’s nachts naar ${esc(a.name)}. Bekijk onze <a href="/werkwijze/">werkwijze</a>.</p>
+    <p class="txt">Een lege cilinder tijdens de late service of op zondagnacht hoeft niet tot morgen te wachten. We zijn 24 uur per dag en 7 dagen per week bereikbaar en rijden ook ’s nachts naar ${esc(a.name)}, van ${esc(a.buurten[0])} tot ${esc(a.buurten[a.buurten.length - 1])}. Bekijk onze <a href="/werkwijze/">werkwijze</a>.</p>
   </article>
 </section>
 
 <section class="box" aria-labelledby="horeca-h">
   <h2 class="h2" id="horeca-h">Horeca, hotels en evenementen in ${esc(a.name)}</h2>
-  <p class="txt">Voor restaurants, bars, hotels, cateraars en evenementenlocaties in ${esc(a.name)} werken we met een vast aanspreekpunt en levering op factuur. Grotere aantallen cilinders bezorgen we op afspraak, ook overdag voor de service begint. Lees meer op onze pagina <a href="/lachgas-horeca-amsterdam/">lachgas voor horeca en events in Amsterdam</a>.</p>
+  <p class="txt">Voor restaurants, bars, hotels, cateraars en evenementenlocaties in ${esc(a.name)} werken we met een vast aanspreekpunt en levering op factuur. Rond ${esc(a.landmarks)} bezorgen we grotere aantallen cilinders op afspraak, ook overdag voordat de service begint. Lees meer op onze pagina <a href="/lachgas-horeca-amsterdam/">lachgas voor horeca en events in Amsterdam</a>.</p>
 </section>
 
 <section class="box" aria-labelledby="safe-h">
@@ -77,7 +77,7 @@ function areaPage(a) {
       provider: { '@id': S.LB_ID }, url: S.url(a.slug),
       areaServed: { '@type': isSD ? 'Place' : 'City', name: a.name, containedInPlace: isSD ? { '@type': 'City', name: 'Amsterdam' } : { '@type': 'AdministrativeArea', name: 'Noord-Holland' }, geo: { '@type': 'GeoCoordinates', latitude: a.lat, longitude: a.lng } },
       hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' },
-      offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'EUR', itemOffered: { '@id': `${C.SITE_URL}/fastgas-tank-2kg/#product` } },
+      serviceOutput: { '@id': `${C.SITE_URL}/fastgas-tank-2kg/#product` },
     },
   ];
 
