@@ -5,14 +5,14 @@ const S = require('./shell');
 const { esc, ICON, waLink } = S;
 
 const TITLE = 'Lachgas Amsterdam | Direct bezorgd binnen 20 minuten, 24/7';
-const DESC = 'Lachgas Amsterdam direct aan huis: originele Fastgas 2000 g, 24/7 binnen 20 minuten bezorgd in elk stadsdeel. Bestel via WhatsApp of bel. 18+.';
+const DESC = 'Lachgas Amsterdam direct aan huis: originele Fastgas 2000 g, 24/7 binnen 20 minuten bezorgd in elk stadsdeel. Bestel via WhatsApp. 18+.';
 
 const FAQ = [
   ['Hoe snel wordt lachgas in Amsterdam bezorgd?', 'In de meeste stadsdelen van Amsterdam staat onze koerier binnen 20 minuten voor de deur. Je krijgt bij je bestelling via WhatsApp direct de verwachte bezorgtijd voor jouw adres.'],
-  ['Is Lachgas Amsterdam Direct 24 uur per dag bereikbaar?', 'Ja. We zijn 24 uur per dag en 7 dagen per week bereikbaar via WhatsApp en telefoon, ook in de nacht, in het weekend en op feestdagen.'],
+  ['Is Lachgas Amsterdam Direct 24 uur per dag bereikbaar?', 'Ja. We zijn 24 uur per dag en 7 dagen per week bereikbaar via WhatsApp, ook in de nacht, in het weekend en op feestdagen.'],
   ['In welke delen van Amsterdam bezorgen jullie lachgas?', 'In alle stadsdelen: Centrum, Noord, Oost, West, Zuid, Zuidoost, Nieuw-West en Weesp. Daarnaast in Amstelveen, Diemen, Duivendrecht, Badhoevedorp, Hoofddorp, Haarlem, Zaandam, Almere, Purmerend en Aalsmeer.'],
   ['Welk product leveren jullie?', 'Originele Fastgas lachgas cilinders van 2000 gram (N2O), verzegeld, met drukregelaar die op elke standaard slagroomspuit past. Eén cilinder staat gelijk aan ongeveer 250 patronen van 8 gram.'],
-  ['Hoe bestel ik lachgas in Amsterdam?', 'Stuur je adres en het gewenste aantal cilinders via WhatsApp of bel ons. Je ontvangt direct een bevestiging met prijs en bezorgtijd, en de koerier vertrekt meteen.'],
+  ['Hoe bestel ik lachgas in Amsterdam?', 'Stuur je adres en het gewenste aantal cilinders via WhatsApp. Je ontvangt direct een bevestiging met prijs en bezorgtijd, en de koerier vertrekt meteen.'],
   ['Hoe kan ik betalen?', 'Met pin of contant aan de deur. Bedrijven en horeca kunnen op factuur bestellen.'],
   ['Wat is de minimumleeftijd?', 'We leveren uitsluitend aan personen van 18 jaar en ouder. De koerier kan om legitimatie vragen en levert niet aan minderjarigen.'],
   ['Wat kost lachgas bezorgen in Amsterdam?', 'Je krijgt bij je bestelling direct een totaalprijs inclusief bezorging voor jouw adres. Geen verrassingen aan de deur; in heel Amsterdam geldt hetzelfde tarief.'],
@@ -45,14 +45,13 @@ function hero() {
       <p>Lachgas Amsterdam Direct bezorgt originele Fastgas cilinders in heel Amsterdam en omstreken: snel, discreet en 24 uur per dag. Van <span class="kw">lachgas bestellen</span> tot <span class="kw">lachgas bezorgen</span>, voor horeca, events en thuis (18+).</p>
       <ul>
         <li><span class="hero-chip">Eigen koeriers, eigen voorraad in Amsterdam</span></li>
-        <li><span class="hero-chip">Direct contact via WhatsApp of telefoon</span></li>
+        <li><span class="hero-chip">Direct contact via WhatsApp</span></li>
         <li><span class="hero-chip">Pin, contant of op factuur</span></li>
         <li><span class="hero-chip">Centrum, Noord, Oost, West, Zuid, Zuidoost, Nieuw-West</span></li>
       </ul>
     </div>
   </div>
   <div class="cta-stack">
-    <a class="cta cta--call" href="tel:${C.PHONE_TEL}" aria-label="Bel Lachgas Amsterdam Direct">${ICON.phone.replace('<svg', '<svg class="cta__icon"')}<span class="cta__label">Bel ${esc(C.PHONE_DISPLAY)}</span></a>
     <a class="cta cta--wa" href="${waLink()}" rel="noopener" aria-label="Bestel via WhatsApp">${ICON.wa.replace('<svg', '<svg class="cta__icon"')}<span class="cta__label">WhatsApp bestellen</span></a>
     <a class="cta cta--info" href="/lachgas-bestellen-amsterdam/" aria-label="Zo bestel je lachgas in Amsterdam">${ICON.info.replace('<svg', '<svg class="cta__icon"')}<span class="cta__label">Zo werkt bestellen</span></a>
   </div>
@@ -73,7 +72,7 @@ function body() {
     <p class="eyebrow">Lachgas Amsterdam Direct</p>
     <h2 class="h2" id="intro-h">Lachgas Amsterdam: binnen 20 minuten aan de deur, 24 uur per dag</h2>
     <p class="txt">Zoek je <strong>lachgas in Amsterdam</strong>? Lachgas Amsterdam Direct is de bezorgservice voor de hele stad. Wij leveren uitsluitend de <a href="/fastgas-tank-2kg/">originele Fastgas cilinder van 2000 gram</a>: verzegeld, getest en voorzien van een drukregelaar die op elke standaard slagroomspuit past. Onze koeriers vertrekken vanuit eigen voorraad in Amsterdam, waardoor we in Centrum, Noord, Oost, West, Zuid, Zuidoost en Nieuw-West meestal binnen 20 minuten voor de deur staan. Ook ’s nachts, in het weekend en op feestdagen.</p>
-    <p class="txt">Bestellen gaat zonder webshop of account: je stuurt je adres via WhatsApp of belt, krijgt direct de prijs en bezorgtijd, en betaalt met pin of contant aan de deur. Horeca, cateraars en evenementenlocaties kunnen op factuur bestellen. We leveren alleen aan personen van 18 jaar en ouder.</p>
+    <p class="txt">Bestellen gaat zonder webshop of account: je stuurt je adres via WhatsApp, krijgt direct de prijs en bezorgtijd, en betaalt met pin of contant aan de deur. Horeca, cateraars en evenementenlocaties kunnen op factuur bestellen. We leveren alleen aan personen van 18 jaar en ouder.</p>
     <ul class="chips" aria-label="Kernpunten">
       <li class="chip--y">Binnen 20 minuten</li><li>24/7, ook feestdagen</li><li>Originele Fastgas 2000 g</li><li>Heel Amsterdam + regio</li><li>Pin, contant, factuur</li><li>Alleen 18+</li>
     </ul>
@@ -82,7 +81,7 @@ function body() {
   <section class="box" aria-labelledby="order-h">
     <h2 class="h2" id="order-h">Lachgas bestellen in Amsterdam: drie stappen</h2>
     <ol class="steps">
-      <li><strong>App of bel</strong>Stuur je adres, het aantal cilinders en een telefoonnummer via <a href="${waLink()}" rel="noopener">WhatsApp</a>, of bel <a href="tel:${C.PHONE_TEL}">${esc(C.PHONE_DISPLAY)}</a>.</li>
+      <li><strong>Stuur een bericht</strong>Stuur je adres, het aantal cilinders en een telefoonnummer via <a href="${waLink()}" rel="noopener">WhatsApp</a>.</li>
       <li><strong>Bevestiging met prijs en tijd</strong>Je krijgt direct een totaalprijs inclusief bezorging en de verwachte aankomsttijd voor jouw stadsdeel.</li>
       <li><strong>Koerier aan de deur</strong>Meestal binnen 20 minuten. Je controleert samen het zegel en betaalt met pin of contant. Klaar.</li>
     </ol>
@@ -122,7 +121,7 @@ function body() {
       ${infoBox(ICON.bolt, 'Binnen 20 minuten', 'Eigen voorraad in Amsterdam en koeriers die de stad kennen. In de meeste stadsdelen staan we binnen 20 minuten voor de deur.')}
       ${infoBox(ICON.clock, 'Dag en nacht', '24 uur per dag, 7 dagen per week bereikbaar. Ook na middernacht, op zondag en op feestdagen rijden we gewoon.')}
       ${infoBox(ICON.shield, 'Origineel en verzegeld', 'Alleen het originele Fastgas merk, verzegeld en getest. Geen hervulde of naamloze cilinders.')}
-      ${infoBox(ICON.chat, 'Persoonlijk contact', 'Je appt of belt met een mens, geen chatbot. Directe bevestiging met prijs en bezorgtijd.')}
+      ${infoBox(ICON.chat, 'Persoonlijk contact', 'Je appt met een mens, geen chatbot. Directe bevestiging met prijs en bezorgtijd.')}
       ${infoBox(ICON.euro, 'Eerlijke prijs', 'Eén totaalprijs inclusief bezorging, vooraf bevestigd. Pin, contant of op factuur voor bedrijven.')}
       ${infoBox(ICON.pin, 'Heel Amsterdam en regio', 'Alle stadsdelen plus Amstelveen, Diemen, Zaandam, Haarlem, Hoofddorp, Almere en Purmerend.')}
       ${infoBox(ICON.route, 'Discreet bezorgd', 'Neutrale koeriers, geen opvallende verpakking. De koerier belt vlak voor aankomst.')}
@@ -155,7 +154,7 @@ function body() {
     <p class="txt">Lachgas Amsterdam Direct is opgezet door koeriers uit Amsterdam die al jaren lachgas bezorgen in de stad. We werken vanuit eigen voorraad, met eigen mensen en vaste routes door alle stadsdelen. Daardoor kunnen we een bezorgtijd beloven die we ook waarmaken: binnen 20 minuten in het grootste deel van Amsterdam, 24 uur per dag. Lees meer <a href="/over-ons/">over ons</a> of bekijk onze <a href="/werkwijze/">werkwijze</a>.</p>
   </section>
 
-  ${S.ctaBox('Lachgas Amsterdam nodig? Bestel direct.', 'Stuur je adres via WhatsApp of bel. Binnen een minuut weet je de prijs en de bezorgtijd en vertrekt de koerier.')}
+  ${S.ctaBox('Lachgas Amsterdam nodig? Bestel direct.', 'Stuur je adres via WhatsApp. Binnen een minuut weet je de prijs en de bezorgtijd en vertrekt de koerier.')}
 </main>`;
 }
 
@@ -166,7 +165,7 @@ function build() {
     {
       '@type': 'Service', '@id': `${C.SITE_URL}/#service`, name: 'Lachgas bezorgen Amsterdam', serviceType: 'Lachgas bezorgservice',
       provider: { '@id': S.LB_ID }, areaServed: { '@type': 'City', name: 'Amsterdam' },
-      availableChannel: { '@type': 'ServiceChannel', serviceUrl: `${C.SITE_URL}/lachgas-bestellen-amsterdam/`, servicePhone: { '@type': 'ContactPoint', telephone: C.PHONE_TEL } },
+      availableChannel: { '@type': 'ServiceChannel', serviceUrl: `${C.SITE_URL}/lachgas-bestellen-amsterdam/`, servicePhone: { '@type': 'ContactPoint', telephone: `+${C.WA_NUMBER}` } },
       hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' },
       serviceOutput: { '@id': `${C.SITE_URL}/fastgas-tank-2kg/#product` },
     },

@@ -71,7 +71,7 @@ write('llms.txt', `# ${C.BRAND}
 
 > Lachgas Amsterdam Direct bezorgt originele Fastgas lachgas cilinders (2000 gram N2O) in heel Amsterdam en omstreken: 24 uur per dag, 7 dagen per week, meestal binnen 20 minuten. Uitsluitend voor 18+ en voor toegestane toepassingen.
 
-Contact: telefoon ${C.PHONE_DISPLAY}, WhatsApp ${C.WA_DISPLAY}, e-mail ${C.EMAIL}.
+Contact: WhatsApp ${C.WA_DISPLAY}, e-mail ${C.EMAIL}.
 
 ## Belangrijkste pagina's
 - [Lachgas Amsterdam](${C.SITE_URL}/): hoofdpagina, bezorging in alle stadsdelen

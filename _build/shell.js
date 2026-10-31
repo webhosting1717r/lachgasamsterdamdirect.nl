@@ -9,7 +9,6 @@ const waLink = (text) => `https://wa.me/${C.WA_NUMBER}?text=${encodeURIComponent
 const url = (p) => C.SITE_URL + (p === '/' ? '/' : `/${p.replace(/^\/|\/$/g, '')}/`);
 
 const ICON = {
-  phone: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 16.4V20a2 2 0 0 1-2.18 2A19.9 19.9 0 0 1 10.1 18.9 19.5 19.5 0 0 1 5.1 13.9 19.9 19.9 0 0 1 2 5.16 2 2 0 0 1 3.99 3h3.6a2 2 0 0 1 2 1.72c.12.91.34 1.81.67 2.66a2 2 0 0 1-.45 2.11L8.3 11a16 16 0 0 0 4.7 4.7l1.5-1.5a2 2 0 0 1 2.11-.45c.85.33 1.75.55 2.66.67A2 2 0 0 1 21 16.4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   wa: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.1.6 2.9.5a2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.5-.3Z"/></svg>',
   info: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 10.2V15.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="7.8" r="1.1" fill="currentColor"/></svg>',
   bolt: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
@@ -57,7 +56,6 @@ function menu(current) {
     ${a('/over-ons/', 'Over ons')}
     ${a('/contact/', 'Contact')}
     <div class="menu-contact">
-      <a href="tel:${C.PHONE_TEL}">${ICON.phone}Bel ${esc(C.PHONE_DISPLAY)}</a>
       <a class="wa" href="${waLink()}" rel="noopener">${ICON.wa}WhatsApp ${esc(C.WA_DISPLAY)}</a>
     </div>
     <a class="menu-brand-fill" href="/" aria-label="Lachgas Amsterdam Direct home"><span>LACHGAS</span><span>AMSTERDAM</span><span>DIRECT</span></a>
@@ -73,7 +71,6 @@ function footer() {
       <div class="footer-brand">Lachgas Amsterdam <b>Direct</b></div>
       <p class="footer-meta"><span class="kw">Lachgas Amsterdam</span> direct aan huis: originele Fastgas cilinders van 2000 gram, 24 uur per dag, 7 dagen per week, binnen 20 minuten bezorgd in heel Amsterdam en omstreken. Alleen voor 18+.</p>
       <ul class="footer-list" style="margin-top:12px">
-        <li><a href="tel:${C.PHONE_TEL}">Bel ${esc(C.PHONE_DISPLAY)}</a></li>
         <li><a href="${waLink()}" rel="noopener">WhatsApp ${esc(C.WA_DISPLAY)}</a></li>
         <li><a href="mailto:${C.EMAIL}">${C.EMAIL}</a></li>
         <li class="footer-note">24/7 bereikbaar, ook op feestdagen</li>
@@ -162,7 +159,7 @@ function head({ title, description, path, ogImage, schema, extraHead = '', robot
 <link rel="alternate" hreflang="x-default" href="${canonical}">
 <meta name="author" content="${esc(C.BRAND)}">
 <meta name="theme-color" content="#040912">
-<meta name="format-detection" content="telephone=yes">
+<meta name="format-detection" content="telephone=no">
 <meta name="geo.region" content="NL-NH">
 <meta name="geo.placename" content="Amsterdam">
 <meta name="geo.position" content="${C.GEO.lat};${C.GEO.lng}">
@@ -203,13 +200,13 @@ function orgNodes() {
       alternateName: ['Lachgas Amsterdam', 'Lachgas Amsterdam Direct', 'LachgasAmsterdamDirect.nl'],
       logo: { '@type': 'ImageObject', url: `${C.SITE_URL}/assets/img/apple-touch-icon.png`, width: 180, height: 180 },
       image: `${C.SITE_URL}/assets/img/og-lachgas-amsterdam.jpg`,
-      email: C.EMAIL, telephone: C.PHONE_TEL,
+      email: C.EMAIL, telephone: `+${C.WA_NUMBER}`,
       sameAs: [`https://wa.me/${C.WA_NUMBER}`],
-      contactPoint: [{ '@type': 'ContactPoint', telephone: C.PHONE_TEL, contactType: 'sales', areaServed: 'NL', availableLanguage: ['nl', 'en'], hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' } }],
+      contactPoint: [{ '@type': 'ContactPoint', telephone: `+${C.WA_NUMBER}`, contactType: 'sales', areaServed: 'NL', availableLanguage: ['nl', 'en'], hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' } }],
     },
     { '@type': 'WebSite', '@id': SITE_ID, url: `${C.SITE_URL}/`, name: C.BRAND, inLanguage: 'nl-NL', publisher: { '@id': ORG_ID } },
     {
-      '@type': 'LocalBusiness', '@id': LB_ID, name: C.BRAND, url: `${C.SITE_URL}/`, telephone: C.PHONE_TEL, email: C.EMAIL,
+      '@type': 'LocalBusiness', '@id': LB_ID, name: C.BRAND, url: `${C.SITE_URL}/`, telephone: `+${C.WA_NUMBER}`, email: C.EMAIL,
       image: `${C.SITE_URL}/assets/img/og-lachgas-amsterdam.jpg`, priceRange: '€€', currenciesAccepted: 'EUR', paymentAccepted: 'Pin, contant, factuur',
       description: 'Lachgas Amsterdam Direct bezorgt originele Fastgas lachgas cilinders van 2000 gram in heel Amsterdam en omstreken: 24/7, binnen 20 minuten, uitsluitend aan 18+.',
       address: { '@type': 'PostalAddress', addressLocality: 'Amsterdam', addressRegion: 'Noord-Holland', addressCountry: 'NL' },
@@ -243,11 +240,11 @@ function crumbsHtml(items) {
 }
 
 function ctaButtons(waText) {
-  return `<div class="btn-row"><a class="btn btn--wa" href="${waLink(waText)}" rel="noopener">${ICON.wa}Bestel via WhatsApp</a><a class="btn" href="tel:${C.PHONE_TEL}">${ICON.phone}Bel ${esc(C.PHONE_DISPLAY)}</a></div>`;
+  return `<div class="btn-row"><a class="btn btn--wa" href="${waLink(waText)}" rel="noopener">${ICON.wa}Bestel via WhatsApp</a></div>`;
 }
 
 function ctaBox(title, text, waText) {
-  return `<section class="box box--accent cta-box" aria-labelledby="cta-h"><h2 class="h2" id="cta-h">${esc(title)}</h2><p class="txt">${text}</p><p style="margin-top:12px"><a class="tel-big" href="tel:${C.PHONE_TEL}">${esc(C.PHONE_DISPLAY)}</a></p>${ctaButtons(waText).replace('btn-row', 'btn-row" style="justify-content:center')}<p class="note">Dag en nacht bereikbaar. Uitsluitend 18+. Legitimatie kan worden gevraagd.</p></section>`;
+  return `<section class="box box--accent cta-box" aria-labelledby="cta-h"><h2 class="h2" id="cta-h">${esc(title)}</h2><p class="txt">${text}</p><p style="margin-top:12px"><a class="num-big" href="${waLink(waText)}" rel="noopener">${esc(C.WA_DISPLAY)}</a></p>${ctaButtons(waText).replace('btn-row', 'btn-row" style="justify-content:center')}<p class="note">Dag en nacht bereikbaar. Uitsluitend 18+. Legitimatie kan worden gevraagd.</p></section>`;
 }
 
 function backdrop() {
@@ -274,7 +271,7 @@ ${backdrop()}
   </header>
   ${body}
   ${faq ? `<section class="box" aria-labelledby="faq-h"><h2 class="h2" id="faq-h">Veelgestelde vragen</h2>${faqHtml(faq)}</section>` : ''}
-  ${ctaBox('Direct lachgas bestellen in Amsterdam', 'Stuur je adres via WhatsApp of bel. Je krijgt direct de prijs en de bezorgtijd, en de koerier vertrekt meteen.', waText)}
+  ${ctaBox('Direct lachgas bestellen in Amsterdam', 'Stuur je adres via WhatsApp. Je krijgt direct de prijs en de bezorgtijd, en de koerier vertrekt meteen.', waText)}
 </main>
 ${footer()}
 <script>${SCRIPT}</script>

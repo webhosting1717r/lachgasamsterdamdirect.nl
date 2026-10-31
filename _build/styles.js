@@ -96,7 +96,6 @@ body.pre .cta-stack{opacity:0;transform:translateX(-50%) translateY(14px)}
 .cta-stack{position:absolute;left:50%;top:calc(50vh - (var(--btn-h)/2) + 84px - var(--cta-lift));transform:translateX(-50%);width:min(560px,calc(100vw - 28px));display:flex;flex-direction:column;gap:var(--gap);z-index:10;transition:opacity .98s cubic-bezier(.22,.61,.36,1) .36s,transform .98s cubic-bezier(.22,.61,.36,1) .36s}
 .cta{--pulse-dur:5.8s;--pulse-delay:0s;position:relative;display:flex;align-items:center;justify-content:center;height:var(--btn-h);border-radius:var(--btn-radius);color:#eef5ff;text-decoration:none;font:600 clamp(1rem,2.3vw,1.45rem)/1.1 inherit;background:rgba(8,18,32,.42);border:1px solid rgba(188,215,243,.26);backdrop-filter:blur(17px) saturate(124%);-webkit-backdrop-filter:blur(17px) saturate(124%)}
 .cta::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;border:1px solid rgba(134,175,220,.22);box-shadow:0 0 8px rgba(88,176,255,calc(var(--glow)*.32)),inset 0 0 10px rgba(103,190,255,calc(var(--glow)*.2));opacity:.55;animation:edgePulse var(--pulse-dur) ease-in-out infinite;animation-delay:var(--pulse-delay)}
-.cta--call{--pulse-delay:-.35s}
 .cta--wa{--pulse-delay:-1.95s}
 .cta--info{--pulse-delay:-3.45s}
 .cta__icon{position:absolute;left:clamp(16px,4vw,26px);width:clamp(20px,2.7vw,30px);height:clamp(20px,2.7vw,30px);color:#f2f7ff;opacity:.92;z-index:2}
@@ -165,7 +164,7 @@ h1{font-size:clamp(1.5rem,4.8vw,2.45rem);line-height:1.13;letter-spacing:.02em;t
 .note{margin-top:12px;color:var(--dim);font-size:.9rem;line-height:1.5}
 .cta-box{text-align:center}
 .cta-box .h2{color:var(--yellow)}
-.tel-big{font-size:clamp(1.3rem,4vw,1.9rem);font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}
+.num-big{font-size:clamp(1.3rem,4vw,1.9rem);font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}
 table{width:100%;border-collapse:collapse;font-size:.94rem}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
 th{color:#f3f8ff}
