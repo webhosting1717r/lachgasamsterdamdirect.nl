@@ -2,7 +2,7 @@
 // Homepage: zoekterm "lachgas amsterdam". Hero in fastgas2go-stijl, daaronder volledige SEO-structuur.
 const C = require('./config');
 const S = require('./shell');
-const { esc, ICON, waLink } = S;
+const { esc, ICON } = S;
 
 const TITLE = 'Lachgas Amsterdam | Direct bezorgd binnen 20 minuten, 24/7';
 const DESC = 'Lachgas Amsterdam direct aan huis: originele Fastgas 2000 g, 24/7 binnen 20 minuten bezorgd in elk stadsdeel. Bestel via WhatsApp. 18+.';
@@ -52,7 +52,6 @@ function hero() {
     </div>
   </div>
   <div class="cta-stack">
-    <a class="cta cta--wa" href="${waLink()}" rel="noopener" aria-label="Bestel via WhatsApp">${ICON.wa.replace('<svg', '<svg class="cta__icon"')}<span class="cta__label">WhatsApp bestellen</span></a>
     <a class="cta cta--info" href="/lachgas-bestellen-amsterdam/" aria-label="Zo bestel je lachgas in Amsterdam">${ICON.info.replace('<svg', '<svg class="cta__icon"')}<span class="cta__label">Zo werkt bestellen</span></a>
   </div>
   <a class="scroll-hint" href="#intro" aria-label="Scroll naar informatie over lachgas Amsterdam">Meer<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -81,11 +80,11 @@ function body() {
   <section class="box" aria-labelledby="order-h">
     <h2 class="h2" id="order-h">Lachgas bestellen in Amsterdam: drie stappen</h2>
     <ol class="steps">
-      <li><strong>Stuur een bericht</strong>Stuur je adres, het aantal cilinders en een telefoonnummer via <a href="${waLink()}" rel="noopener">WhatsApp</a>.</li>
+      <li><strong>Stuur een bericht</strong>Stuur je adres, het aantal cilinders en een telefoonnummer via WhatsApp.</li>
       <li><strong>Bevestiging met prijs en tijd</strong>Je krijgt direct een totaalprijs inclusief bezorging en de verwachte aankomsttijd voor jouw stadsdeel.</li>
       <li><strong>Koerier aan de deur</strong>Meestal binnen 20 minuten. Je controleert samen het zegel en betaalt met pin of contant. Klaar.</li>
     </ol>
-    <div class="btn-row"><a class="btn btn--wa" href="${waLink()}" rel="noopener">${ICON.wa}Bestel via WhatsApp</a><a class="btn btn--y" href="/lachgas-bestellen-amsterdam/">${ICON.info}Alles over bestellen</a></div>
+    <div class="btn-row"><a class="btn btn--y" href="/lachgas-bestellen-amsterdam/">${ICON.info}Alles over bestellen</a></div>
   </section>
 
   <section class="box" aria-labelledby="product-h">
@@ -154,7 +153,6 @@ function body() {
     <p class="txt">Lachgas Amsterdam Direct is opgezet door koeriers uit Amsterdam die al jaren lachgas bezorgen in de stad. We werken vanuit eigen voorraad, met eigen mensen en vaste routes door alle stadsdelen. Daardoor kunnen we een bezorgtijd beloven die we ook waarmaken: binnen 20 minuten in het grootste deel van Amsterdam, 24 uur per dag. Lees meer <a href="/over-ons/">over ons</a> of bekijk onze <a href="/werkwijze/">werkwijze</a>.</p>
   </section>
 
-  ${S.ctaBox('Lachgas Amsterdam nodig? Bestel direct.', 'Stuur je adres via WhatsApp. Binnen een minuut weet je de prijs en de bezorgtijd en vertrekt de koerier.')}
 </main>`;
 }
 
@@ -165,7 +163,7 @@ function build() {
     {
       '@type': 'Service', '@id': `${C.SITE_URL}/#service`, name: 'Lachgas bezorgen Amsterdam', serviceType: 'Lachgas bezorgservice',
       provider: { '@id': S.LB_ID }, areaServed: { '@type': 'City', name: 'Amsterdam' },
-      availableChannel: { '@type': 'ServiceChannel', serviceUrl: `${C.SITE_URL}/lachgas-bestellen-amsterdam/`, servicePhone: { '@type': 'ContactPoint', telephone: `+${C.WA_NUMBER}` } },
+      availableChannel: { '@type': 'ServiceChannel', serviceUrl: `${C.SITE_URL}/lachgas-bestellen-amsterdam/` },
       hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' },
       serviceOutput: { '@id': `${C.SITE_URL}/fastgas-tank-2kg/#product` },
     },

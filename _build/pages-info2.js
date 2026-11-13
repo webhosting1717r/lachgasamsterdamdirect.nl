@@ -2,7 +2,7 @@
 // Informatieve en juridische pagina's + 404.
 const C = require('./config');
 const S = require('./shell');
-const { esc, ICON, waLink } = S;
+const { esc, ICON } = S;
 
 const HOME = ['Lachgas Amsterdam', '/'];
 const box = (id, h2, inner) => `<section class="box" aria-labelledby="${id}"><h2 class="h2" id="${id}">${h2}</h2>${inner}</section>`;
@@ -75,7 +75,7 @@ ${box('h-who', 'Wie we zijn', p('Lachgas Amsterdam Direct is opgezet door koerie
   <article class="box"><div class="info-head"><span class="icon-chip" aria-hidden="true">${ICON.chat}</span><h3 class="h3">Mensen, geen bots</h3></div><p class="txt">Je appt met iemand die je bestelling direct regelt en eerlijk zegt hoe laat we er zijn.</p></article>
   <article class="box"><div class="info-head"><span class="icon-chip" aria-hidden="true">${ICON.check}</span><h3 class="h3">Verantwoord</h3></div><p class="txt">18+, legitimatie op verzoek, alleen toegestane toepassingen en duidelijke veiligheidsinstructies.</p></article>
 </section>
-${box('h-data', 'Bedrijfsgegevens', `<ul><li>Handelsnaam: ${esc(C.BRAND)}</li><li>Vestigingsplaats: Amsterdam</li><li>WhatsApp: <a href="${waLink()}" rel="noopener">${esc(C.WA_DISPLAY)}</a></li><li>E-mail: <a href="mailto:${C.EMAIL}">${C.EMAIL}</a></li><li>Bereikbaar: 24 uur per dag, 7 dagen per week</li></ul>`)}`;
+${box('h-data', 'Bedrijfsgegevens', `<ul><li>Handelsnaam: ${esc(C.BRAND)}</li><li>Vestigingsplaats: Amsterdam</li><li>E-mail: <a href="mailto:${C.EMAIL}">${C.EMAIL}</a></li><li>Bereikbaar: 24 uur per dag, 7 dagen per week</li></ul>`)}`;
   const schemaExtra = [{ '@type': 'AboutPage', '@id': `${C.SITE_URL}/over-ons/#about`, url: `${C.SITE_URL}/over-ons/`, mainEntity: { '@id': S.ORG_ID } }];
   return { slug: 'over-ons', priority: '0.6', changefreq: 'monthly', html: S.page({ slug: 'over-ons', title: 'Over Lachgas Amsterdam Direct | Lokale bezorgservice, 24/7', description: 'Lachgas Amsterdam Direct: Amsterdamse koeriers, eigen voorraad en originele Fastgas cilinders, 24/7 binnen 20 minuten bezorgd in elk stadsdeel.', h1: 'Over Lachgas Amsterdam Direct', eyebrow: 'Over ons', lead: 'Een bezorgservice uit Amsterdam, voor Amsterdam. Eigen koeriers, eigen voorraad en één belofte: binnen 20 minuten, dag en nacht.', crumbs: [HOME, ['Over ons', 'over-ons']], body, schemaExtra }) };
 }
@@ -83,14 +83,13 @@ ${box('h-data', 'Bedrijfsgegevens', `<ul><li>Handelsnaam: ${esc(C.BRAND)}</li><l
 function contact() {
   const body = `
 <section class="grid" aria-label="Contactmogelijkheden">
-  <article class="box box--wa"><div class="info-head"><span class="icon-chip" aria-hidden="true">${ICON.wa}</span><h2 class="h3">WhatsApp (snelst)</h2></div><p class="txt">Stuur je adres en aantal cilinders. Antwoord binnen een minuut, 24 uur per dag.</p><div class="btn-row"><a class="btn btn--wa" href="${waLink()}" rel="noopener">${ICON.wa}${esc(C.WA_DISPLAY)}</a></div></article>
   <article class="box"><div class="info-head"><span class="icon-chip" aria-hidden="true">${ICON.chat}</span><h2 class="h3">E-mail</h2></div><p class="txt">Voor offertes, facturen en zakelijke vragen. Antwoord binnen een werkdag.</p><div class="btn-row"><a class="btn" href="mailto:${C.EMAIL}">${ICON.chat}${C.EMAIL}</a></div></article>
 </section>
 ${box('h-hours', 'Bereikbaarheid', `<div style="overflow-x:auto"><table><tbody><tr><th scope="row">Maandag t/m zondag</th><td>24 uur per dag</td></tr><tr><th scope="row">Feestdagen</th><td>24 uur per dag</td></tr><tr><th scope="row">Bezorging Amsterdam</th><td>binnen 20 minuten</td></tr><tr><th scope="row">Bezorging regio</th><td>20 tot 30 minuten</td></tr></tbody></table></div>`)}
-${box('h-biz', 'Zakelijk', p('Horeca, catering en evenementen: stuur je bedrijfsnaam, adres en contactpersoon via WhatsApp of e-mail. We zetten je op factuur en plannen leveringen op het moment dat jij wilt. Zie <a href="/lachgas-horeca-amsterdam/">horeca en events</a>.'))}
+${box('h-biz', 'Zakelijk', p('Horeca, catering en evenementen: stuur je bedrijfsnaam, adres en contactpersoon via e-mail. We zetten je op factuur en plannen leveringen op het moment dat jij wilt. Zie <a href="/lachgas-horeca-amsterdam/">horeca en events</a>.'))}
 ${box('h-area', 'Bezorggebied', p('Alle stadsdelen van Amsterdam en de regio van Zaandam tot Hoofddorp en Almere. Bekijk <a href="/bezorggebieden/">alle bezorggebieden</a>.'))}`;
   const schemaExtra = [{ '@type': 'ContactPage', '@id': `${C.SITE_URL}/contact/#contact`, url: `${C.SITE_URL}/contact/`, mainEntity: { '@id': S.ORG_ID } }];
-  return { slug: 'contact', priority: '0.7', changefreq: 'monthly', html: S.page({ slug: 'contact', title: 'Contact | Lachgas Amsterdam Direct, 24/7 via WhatsApp', description: 'Neem contact op met Lachgas Amsterdam Direct: WhatsApp +1 647 493 5191 of mail. 24 uur per dag bereikbaar voor lachgas bestellen in Amsterdam.', h1: 'Contact: dag en nacht bereikbaar', eyebrow: 'Contact', lead: 'WhatsApp is het snelst: je stuurt je adres en krijgt binnen een minuut prijs en bezorgtijd, 24 uur per dag.', crumbs: [HOME, ['Contact', 'contact']], body, schemaExtra }) };
+  return { slug: 'contact', priority: '0.7', changefreq: 'monthly', html: S.page({ slug: 'contact', title: 'Contact | Lachgas Amsterdam Direct, 24/7 bereikbaar', description: 'Neem contact op met Lachgas Amsterdam Direct per e-mail. 24 uur per dag bereikbaar voor lachgas bestellen in Amsterdam.', h1: 'Contact: dag en nacht bereikbaar', eyebrow: 'Contact', lead: 'Stuur ons een e-mail met je vraag of bestelling; we reageren zo snel mogelijk.', crumbs: [HOME, ['Contact', 'contact']], body, schemaExtra }) };
 }
 
 function voorwaarden() {
@@ -125,7 +124,7 @@ ${S.backdrop()}
 <main class="page" id="main">
   <header class="box"><p class="eyebrow">404</p><h1>Pagina niet gevonden</h1><p class="lead">De pagina die je zocht bestaat niet (meer). Wat je waarschijnlijk zoekt:</p>
   <ul class="area-grid" style="margin-top:14px"><li><a href="/">Lachgas Amsterdam</a></li><li><a href="/lachgas-bestellen-amsterdam/">Lachgas bestellen</a></li><li><a href="/bezorggebieden/">Bezorggebieden</a></li><li><a href="/contact/">Contact</a></li></ul>
-  ${S.ctaButtons()}</header>
+</header>
 </main>
 ${S.footer()}
 <script>${S.SCRIPT}</script>
