@@ -2,7 +2,7 @@
 // Commerciële en productpagina's. Overige infopagina's staan in pages-info2.js.
 const C = require('./config');
 const S = require('./shell');
-const { esc, ICON } = S;
+const { esc, ICON, waLink } = S;
 const more = require('./pages-info2');
 
 const HOME = ['Lachgas Amsterdam', '/'];
@@ -21,7 +21,7 @@ function bestellen() {
   const body = `
 ${box('h-how', 'Zo bestel je lachgas in Amsterdam', `
 <ol class="steps">
-  <li><strong>Stuur je adres</strong>Via WhatsApp. Noem postcode, huisnummer, verdieping, aantal cilinders en een telefoonnummer.</li>
+  <li><strong>Stuur je adres</strong>Via <a href="${waLink()}" rel="noopener">WhatsApp</a>. Noem postcode, huisnummer, verdieping, aantal cilinders en een telefoonnummer.</li>
   <li><strong>Ontvang prijs en tijd</strong>Binnen een minuut krijg je de totaalprijs inclusief bezorging en de verwachte aankomsttijd. Pas als jij akkoord geeft, vertrekt de koerier.</li>
   <li><strong>Betaal aan de deur</strong>Pin of contant. Bedrijven op factuur. De koerier belt vlak voor aankomst en controleert samen met jou het zegel.</li>
 </ol>`)}

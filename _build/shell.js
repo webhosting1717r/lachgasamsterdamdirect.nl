@@ -5,6 +5,7 @@ const AREAS = require('./areas');
 const { BASE } = require('./styles');
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const waLink = (text) => `https://wa.me/${C.WA_NUMBER}?text=${encodeURIComponent(text || C.WA_TEXT)}`;
 const url = (p) => C.SITE_URL + (p === '/' ? '/' : `/${p.replace(/^\/|\/$/g, '')}/`);
 
 const ICON = {
@@ -54,6 +55,9 @@ function menu(current) {
     ${a('/wetgeving-lachgas/', 'Wetgeving lachgas')}
     ${a('/over-ons/', 'Over ons')}
     ${a('/contact/', 'Contact')}
+    <div class="menu-contact">
+      <a class="wa" href="${waLink()}" rel="noopener">${ICON.wa}WhatsApp ${esc(C.WA_DISPLAY)}</a>
+    </div>
     <a class="menu-brand-fill" href="/" aria-label="Lachgas Amsterdam Direct home"><span>LACHGAS</span><span>AMSTERDAM</span><span>DIRECT</span></a>
   </div>
 </nav>`;
@@ -67,6 +71,7 @@ function footer() {
       <div class="footer-brand">Lachgas Amsterdam <b>Direct</b></div>
       <p class="footer-meta"><span class="kw">Lachgas Amsterdam</span> direct aan huis: originele Fastgas cilinders van 2000 gram, 24 uur per dag, 7 dagen per week, binnen 20 minuten bezorgd in heel Amsterdam en omstreken. Alleen voor 18+.</p>
       <ul class="footer-list" style="margin-top:12px">
+        <li><a href="${waLink()}" rel="noopener">WhatsApp ${esc(C.WA_DISPLAY)}</a></li>
         <li><a href="mailto:${C.EMAIL}">${C.EMAIL}</a></li>
         <li class="footer-note">24/7 bereikbaar, ook op feestdagen</li>
       </ul>
@@ -102,7 +107,8 @@ function footer() {
     </section>
   </div>
   <div class="footer-bottom"><span>&copy; ${C.YEAR} ${esc(C.BRAND)}. Alle rechten voorbehouden.</span><span>Discreet bezorgd in Amsterdam en omstreken. Verkoop uitsluitend aan 18+.</span></div>
-</footer>`;
+</footer>
+<a class="wa-float" href="${waLink()}" rel="noopener" aria-label="Bestel lachgas via WhatsApp">${ICON.wa}<span>WhatsApp bestellen</span></a>`;
 }
 
 function ageGate() {
@@ -194,12 +200,13 @@ function orgNodes() {
       alternateName: ['Lachgas Amsterdam', 'Lachgas Amsterdam Direct', 'LachgasAmsterdamDirect.nl'],
       logo: { '@type': 'ImageObject', url: `${C.SITE_URL}/assets/img/apple-touch-icon.png`, width: 180, height: 180 },
       image: `${C.SITE_URL}/assets/img/og-lachgas-amsterdam.jpg`,
-      email: C.EMAIL,
-      contactPoint: [{ '@type': 'ContactPoint', email: C.EMAIL, contactType: 'customer service', areaServed: 'NL', availableLanguage: ['nl', 'en'], hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' } }],
+      email: C.EMAIL, telephone: `+${C.WA_NUMBER}`,
+      sameAs: [`https://wa.me/${C.WA_NUMBER}`],
+      contactPoint: [{ '@type': 'ContactPoint', telephone: `+${C.WA_NUMBER}`, contactType: 'sales', areaServed: 'NL', availableLanguage: ['nl', 'en'], hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' } }],
     },
     { '@type': 'WebSite', '@id': SITE_ID, url: `${C.SITE_URL}/`, name: C.BRAND, inLanguage: 'nl-NL', publisher: { '@id': ORG_ID } },
     {
-      '@type': 'LocalBusiness', '@id': LB_ID, name: C.BRAND, url: `${C.SITE_URL}/`, email: C.EMAIL,
+      '@type': 'LocalBusiness', '@id': LB_ID, name: C.BRAND, url: `${C.SITE_URL}/`, telephone: `+${C.WA_NUMBER}`, email: C.EMAIL,
       image: `${C.SITE_URL}/assets/img/og-lachgas-amsterdam.jpg`, priceRange: '€€', currenciesAccepted: 'EUR', paymentAccepted: 'Pin, contant, factuur',
       description: 'Lachgas Amsterdam Direct bezorgt originele Fastgas lachgas cilinders van 2000 gram in heel Amsterdam en omstreken: 24/7, binnen 20 minuten, uitsluitend aan 18+.',
       address: { '@type': 'PostalAddress', addressLocality: 'Amsterdam', addressRegion: 'Noord-Holland', addressCountry: 'NL' },
@@ -232,6 +239,14 @@ function crumbsHtml(items) {
   return `<nav aria-label="Kruimelpad"><ol class="crumbs">${items.map((it, i) => i === items.length - 1 ? `<li aria-current="page">${esc(it[0])}</li>` : `<li><a href="${it[1] === '/' ? '/' : `/${it[1]}/`}">${esc(it[0])}</a></li>`).join('')}</ol></nav>`;
 }
 
+function ctaButtons(waText) {
+  return `<div class="btn-row"><a class="btn btn--wa" href="${waLink(waText)}" rel="noopener">${ICON.wa}Bestel via WhatsApp</a></div>`;
+}
+
+function ctaBox(title, text, waText) {
+  return `<section class="box box--accent cta-box" aria-labelledby="cta-h"><h2 class="h2" id="cta-h">${esc(title)}</h2><p class="txt">${text}</p><p style="margin-top:12px"><a class="num-big" href="${waLink(waText)}" rel="noopener">${esc(C.WA_DISPLAY)}</a></p>${ctaButtons(waText).replace('btn-row', 'btn-row" style="justify-content:center')}<p class="note">Dag en nacht bereikbaar. Uitsluitend 18+. Legitimatie kan worden gevraagd.</p></section>`;
+}
+
 function backdrop() {
   return `<div class="backdrop" aria-hidden="true"><img src="/assets/img/scene-ext-960.webp" srcset="/assets/img/scene-ext-960.webp 960w, /assets/img/scene-ext-1536.webp 1536w" sizes="100vw" alt="" width="1536" height="1024" decoding="async" fetchpriority="low"></div>`;
 }
@@ -252,9 +267,11 @@ ${backdrop()}
     ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}
     <h1>${h1}</h1>
     ${lead ? `<p class="lead">${lead}</p>` : ''}
+    ${ctaButtons(waText)}
   </header>
   ${body}
   ${faq ? `<section class="box" aria-labelledby="faq-h"><h2 class="h2" id="faq-h">Veelgestelde vragen</h2>${faqHtml(faq)}</section>` : ''}
+  ${ctaBox('Direct lachgas bestellen in Amsterdam', 'Stuur je adres via WhatsApp. Je krijgt direct de prijs en de bezorgtijd, en de koerier vertrekt meteen.', waText)}
 </main>
 ${footer()}
 <script>${SCRIPT}</script>
@@ -262,4 +279,4 @@ ${footer()}
 </html>`;
 }
 
-module.exports = { esc, url, ICON, menu, footer, ageGate, SCRIPT, head, orgNodes, webPage, breadcrumb, faqSchema, faqHtml, crumbsHtml, backdrop, page, stadsdelen, regio, ORG_ID, SITE_ID, LB_ID };
+module.exports = { esc, waLink, url, ICON, menu, footer, ageGate, SCRIPT, head, orgNodes, webPage, breadcrumb, faqSchema, faqHtml, crumbsHtml, ctaButtons, ctaBox, backdrop, page, stadsdelen, regio, ORG_ID, SITE_ID, LB_ID };
